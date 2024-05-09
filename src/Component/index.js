@@ -15,6 +15,13 @@ export {default as TransitionRoot} from "./NavBar/NavBarNavigation/PopOver/Trans
 export {default as Hero} from "./Hero/Hero";
 export {default as AllServices} from "./AllServices/AllServices";
 export {default as CardCategories} from "./CardCategories/CardCategories";
+export {default as CarouselCategories} from "./CardCategories/CarouselCategories";
+export {default as CardGlobalCategories} from "./CardCategories/CardGlobalCategories";
+export {default as ButtonIconsSearch} from "./Button/ButtonIconsSearch";
+export {default as Main} from "./Main/Main";
+export {default as DetailProduit} from "./Produits/DetailProduit";
+
+
 
 
 

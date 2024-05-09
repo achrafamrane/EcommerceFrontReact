@@ -7,7 +7,7 @@
 #root {
   max-width: 100%;
   margin: 0 auto;
-  padding:0  2rem 0 2rem;
+  padding:0  5rem 0 5rem;
   text-align: center;
   background-color: var(--BGCOLOR_GRAY);
   font-family: 'Roboto', sans-serif;

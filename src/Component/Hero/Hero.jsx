@@ -1,10 +1,9 @@
-import React from 'react'
-import { Carousel } from 'react-responsive-carousel'
+import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { HeroData } from "./HeroData";
 const Hero = () => {
   return (
-    <div>
+    <div className=" rounded-full">
       <Carousel
         showArrows={true}
         autoPlay={true}
@@ -22,7 +21,7 @@ const Hero = () => {
         ))}
       </Carousel>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

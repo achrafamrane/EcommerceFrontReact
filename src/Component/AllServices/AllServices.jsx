@@ -1,14 +1,31 @@
-import {CardCategories} from "../index";
+import { CardGlobalCategories } from "../index";
 import { AllServicesData } from "./AllServicesData";
 
 const AllServices = ({ deviceType }) => {
-    
   return (
-    <div className='space-y-2'>
-     <CardCategories  deviceType ={ deviceType } propsData={AllServicesData} title="all categories"/>
-     <CardCategories  deviceType ={ deviceType } propsData={AllServicesData} title="PACK promotionel"/>
-  </div>
-  )
-}
+    <div className="space-y-1">
+      <CardGlobalCategories
+        deviceType={deviceType}
+        propsData={AllServicesData}
+        title="all categories"
+        isCarousel={true}
+      />
+      <CardGlobalCategories
+        deviceType={deviceType}
+        propsData={AllServicesData}
+        title="Pack"
+        isCarousel={false}
+      />
+      <CardGlobalCategories
+        deviceType={deviceType}
+        propsData={AllServicesData}
+        title="CAnapé"
+        isCarousel={false}
+      />
 
-export default AllServices
+      {/* <CardCategories  deviceType ={ deviceType } propsData={AllServicesData} title="PACK promotionel"/> */}
+    </div>
+  );
+};
+
+export default AllServices;

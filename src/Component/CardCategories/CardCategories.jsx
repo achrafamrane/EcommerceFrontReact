@@ -1,57 +1,37 @@
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-const CardCategories = ({ deviceType,propsData,title }) => {
-    const responsive = {
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 3,
-          slidesToSlide: 3 // optional, default to 1.
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2,
-          slidesToSlide: 2 // optional, default to 1.
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1,
-          slidesToSlide: 1 // optional, default to 1.
-        }
-      };
-  return (
-    <div className='bg-BG_COLOR_YELLOW_Light'>
-     <div className=' bg-BG_COLOR_YELLOW p-2 uppercase 
-     font-extrabold text-2xl text-white text-center'>
-        {title}</div>
-    <Carousel
-    swipeable={false}
-    draggable={false}
-    showDots={true}
-    responsive={responsive}
-    ssr={true} // means to render carousel on server-side.
-    infinite={true}
-    autoPlay={deviceType !== "mobile" ? true : false}
-    autoPlaySpeed={5000}
-    keyBoardControl={true}
-    customTransition="all .5"
-    transitionDuration={500}
-    containerClass="carousel-container"
-    removeArrowOnDeviceType={["tablet", "mobile"]}
-    deviceType={deviceType}
-    dotListClass="custom-dot-list-style"
-    itemClass="carousel-item-padding-40-px"
-  >
-    {propsData.map((e) => (
-    <div key={e.id} className='m-2 p-1' >
-           <img
-              src={e.image}
-              alt=''    
-              className='h-72 w-full'   />
-        </div>
-        ))}
-  </Carousel> 
-    </div>
-  )
-}
+import { ButtonIconsSearch } from "../../Component/index";
+import { ProduitData } from "../Produits/ProduitData";
 
-export default CardCategories
+export default function CardCategories() {
+  return (
+    <div className="bg-white">
+      <div className="px-1 py-1 sm:px-2 sm:py-2  ">
+        <div className="grid grid-cols-1 gap-x-2 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+          {ProduitData.slice(0, 8).map((product) => (
+            <a
+              key={product.id}
+              href={`/DetailProduit/${product.id}`}
+              className="group"
+            >
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 relative">
+                <img
+                  src={product.imageSrc}
+                  alt={product.imageAlt}
+                  className="h-60 w-full object-cover object-center group-hover:opacity-75 group-hover:h-56"
+                />
+                <ButtonIconsSearch />
+              </div>
+              <div className="bg-yellow-50 group-hover:opacity-75 font-FONT_ROBOT">
+                <h3 className="mt-1 text-base  text-black uppercase">
+                  {product.name}
+                </h3>
+                <p className="mt-1 text-lg font-medium text-red-600">
+                  {product.price}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
