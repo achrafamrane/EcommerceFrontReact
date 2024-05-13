@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import { CardGlobalCategories } from "..";
 import { AllServicesData } from "../AllServices/AllServicesData";
-import Button from "../Button/Button";
+import Buttons from "../Button/Buttons";
+import { FaShoppingCart } from "react-icons/fa";
 
 const features = [
   { name: "Marque", description: "Designed by Good Goods, Inc." },
@@ -73,10 +74,25 @@ export default function DetailProduit() {
               </div>
             ))}
           </dl>
-          <div className="mt-5 grid grid-cols-2 border-t border-gray-200">
+          <div className="mt-5 mb-10 grid space-x-3 grid-cols-3 border-t border-gray-200">
             <div className="">
-              <Button color="red" />
-            </div>{" "}
+              <Buttons
+                name="Ajouter au panier"
+                background="BG_COLOR_YELLOW"
+                colorText="white"
+              >
+                <FaShoppingCart />
+              </Buttons>
+            </div>
+            <div className="">
+              <Buttons
+                name="Acheter maintenant "
+                background="BG_COLOR_FOOTERGRAY"
+                colorText="white"
+              >
+                <FaShoppingCart />
+              </Buttons>
+            </div>
             <div className="">sdsd</div>
           </div>
         </div>
