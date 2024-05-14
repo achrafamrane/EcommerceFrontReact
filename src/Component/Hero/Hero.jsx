@@ -11,7 +11,7 @@ const Hero = () => {
         infiniteLoop={true}
       >
         {HeroData.map((e) => (
-          <div className="h-[600px]" key={e.id}>
+          <div className="h-[650px]" key={e.id}>
             <img
               src={e.image}
               className="bg-cover bg-center bg-no-repeat w-full h-full"

@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
@@ -31,7 +31,7 @@ const products = [
   // More products...
 ];
 
-export default function CardShopping({ open, setOpen }) {
+export default function CardShopping({ open, setOpen, produitData }) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog className="relative z-10" onClose={setOpen}>
@@ -85,7 +85,7 @@ export default function CardShopping({ open, setOpen }) {
                             role="list"
                             className="-my-6 divide-y divide-gray-200"
                           >
-                            {products.map((product) => (
+                            {produitData.map((product) => (
                               <li key={product.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
@@ -99,19 +99,17 @@ export default function CardShopping({ open, setOpen }) {
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3>
-                                        <a href={product.href}>
-                                          {product.name}
-                                        </a>
+                                        <a href={product.id}>{product.name}</a>
                                       </h3>
-                                      <p className="ml-4">{product.price}</p>
+                                      {/* <p className="ml-4">{ProduitDatas.price}</p> */}
                                     </div>
                                     <p className="mt-1 text-sm text-gray-500">
-                                      {product.color}
+                                      {product.name}
                                     </p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                     <p className="text-gray-500">
-                                      Qty {product.quantity}
+                                      Qty {product.price}
                                     </p>
 
                                     <div className="flex">
@@ -144,12 +142,12 @@ export default function CardShopping({ open, setOpen }) {
                           to="/ContactClient"
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                         >
-                          Checkout
+                          Acheter
                         </Link>
                       </div>
-                      <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
+                      {/* <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
-                          or{" "}
+                          or
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
@@ -159,7 +157,7 @@ export default function CardShopping({ open, setOpen }) {
                             <span aria-hidden="true"> &rarr;</span>
                           </button>
                         </p>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </Dialog.Panel>

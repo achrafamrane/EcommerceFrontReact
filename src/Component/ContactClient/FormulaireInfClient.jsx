@@ -1,8 +1,8 @@
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Buttons from "../Button/Buttons";
 import { FaCheckCircle } from "react-icons/fa";
 
 const FormulaireInfClient = () => {
+  const handleValidCommande = () => {};
   return (
     <form action="#" method="POST" className="mt-5  sm:mt-20">
       <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -137,7 +137,7 @@ const FormulaireInfClient = () => {
           name="Valider La Commande"
           background="bg-BG_COLOR_FOOTERGRAY"
           colorText="white"
-          handleFunction="{}"
+          handleFunction={handleValidCommande}
         >
           <FaCheckCircle />
         </Buttons>

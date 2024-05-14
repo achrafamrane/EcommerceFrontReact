@@ -4,6 +4,7 @@ export const FeatureProduit = [
   {
     id: 1,
     title: "Canape",
+    descriptionProduit: "qsdqsdqsdq",
     features: [
       { name: "Marque", description: "Designed by Good Goods, Inc." },
       {
@@ -34,6 +35,7 @@ export const FeatureProduit = [
   {
     id: 2,
     title: "lit",
+    descriptionProduit: "aaaaaaa",
     features: [
       { name: "Marques", description: "Designed by Good Goods, Inc." },
       {
@@ -57,4 +59,8 @@ export const FeatureProduit = [
       },
       {
         name: "Total avec livraison",
-        description: 
+        description: "25151 DA",
+      },
+    ],
+  },
+];

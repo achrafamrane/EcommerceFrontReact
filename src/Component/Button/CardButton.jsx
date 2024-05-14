@@ -3,12 +3,24 @@ import { FaShoppingCart, FaPhoneAlt, FaCheckCircle } from "react-icons/fa";
 import { HiOutlinePencil } from "react-icons/hi";
 import { CardShopping, SocialIconButton } from "../index";
 import { useState } from "react";
-
-const CardButton = () => {
+const initialProduitData = [];
+const CardButton = ({ ProduitDatas }) => {
   const [open, setOpen] = useState(false);
+  const [produitData, setProduitData] = useState(initialProduitData);
+
+  const handleAddToPanier = () => {
+    setOpen(!open);
+    const productExists = produitData.some(
+      (product) => product.id === ProduitDatas.id
+    );
+    if (!productExists) {
+      setProduitData([...produitData, ProduitDatas]);
+    }
+  };
 
   const handleAcheter = () => {
     setOpen(!open);
+    setProduitData([ProduitDatas]);
   };
   return (
     <div>
@@ -18,7 +30,7 @@ const CardButton = () => {
             name="Ajouter au panier"
             background="bg-BG_COLOR_YELLOW"
             colorText="white"
-            handleFunction={handleAcheter}
+            handleFunction={handleAddToPanier}
           >
             <FaShoppingCart />
           </Buttons>
@@ -55,7 +67,7 @@ const CardButton = () => {
         </Buttons>
       </div>
       <SocialIconButton />
-      <CardShopping open={open} setOpen={setOpen} />
+      <CardShopping open={open} setOpen={setOpen} produitData={produitData} />
     </div>
   );
 };

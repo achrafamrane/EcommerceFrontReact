@@ -31,6 +31,7 @@ export {default as ContactClient} from "./ContactClient/ContactClient.jsx";
 export {default as CardContact} from "./CardContact/CardContact.jsx";
 export {default as FormulaireInfClient} from "./ContactClient/FormulaireInfClient.jsx";
 export {default as CardShopping} from "./CardShopping/CardShopping.jsx";
+export {default as Buttons} from "./Buttons/Buttons.jsx";
 
 
 
