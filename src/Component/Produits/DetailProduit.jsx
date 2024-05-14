@@ -1,43 +1,41 @@
 import { useParams } from "react-router-dom";
-import { CardGlobalCategories } from "..";
-import { AllServicesData } from "../AllServices/AllServicesData";
-import Buttons from "../Button/Buttons";
-import { FaShoppingCart } from "react-icons/fa";
-
-const features = [
-  { name: "Marque", description: "Designed by Good Goods, Inc." },
-  {
-    name: "Prix",
-    description:
-      "Solid walnut base with rare earth magnets and powder coated steel card cover",
-  },
-  { name: "Dimensions", description: "6.25 x 3.55 x 1.15" },
-  { name: "Stock", description: "Hand sanded and finished with natural oil" },
-  { name: "Couleur", description: "Wood card tray and 3 refill packs" },
-  {
-    name: "Condition",
-    description:
-      "Made from natural materials. Grain and color vary with each item.",
-  },
-  {
-    name: "Livraison",
-    description:
-      "Made from natural materials. Grain and color vary with each item.",
-  },
-];
+import {
+  CardButton,
+  CardGlobalCategories,
+  FeatureProduit,
+  AllServicesData,
+  HeroData,
+} from "../../Component/index";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function DetailProduit() {
-  const userId = useParams();
+  const id = useParams();
+  const FeatureProduits = FeatureProduit.find(
+    (item) => item.id === parseInt(id.produitId)
+  );
   return (
     <div className="bg-white">
       <div className=" grid max-w-1xl  grid-cols-1  gap-x-20 gap-y-1   sm:py-5 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
         <div className="grid">
-          <img
-            src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg"
-            alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
-            className="rounded-lg bg-gray-100 w-full h-full"
-          />
-          {/* <img
+          <Carousel
+            showArrows={true}
+            autoPlay={true}
+            interval={4000}
+            infiniteLoop={true}
+          >
+            {HeroData.map((e) => (
+              <div className="h-[500px]" key={e.id}>
+                <img
+                  src={e.image}
+                  className="bg-cover bg-center bg-no-repeat w-full h-full"
+                />
+              </div>
+            ))}
+          </Carousel>
+
+          {/*
+           <img
             src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-02.jpg"
             alt="Top down view of walnut card tray with embedded magnets and card groove."
             className="rounded-lg bg-gray-100"
@@ -51,7 +49,8 @@ export default function DetailProduit() {
             src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-04.jpg"
             alt="Walnut card tray filled with cards and card angled in dedicated groove."
             className="rounded-lg bg-gray-100"
-          /> */}
+          /> 
+          */}
         </div>
         <div>
           <h2 className="text-3xl uppercase font-bold  tracking-tight text-gray-900 sm:text-4xl">
@@ -65,36 +64,17 @@ export default function DetailProduit() {
           </p>
 
           <dl className="mt-2 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2 sm:gap-y-1 lg:gap-x-8">
-            {features.map((feature) => (
-              <div key={feature.name} className="border-t border-gray-200 pt-4">
-                <dt className="font-medium text-gray-900 ">{feature.name}</dt>
-                <dd className="mt-2 text-sm text-gray-500">
-                  {feature.description}
-                </dd>
-              </div>
-            ))}
+            {FeatureProduits &&
+              FeatureProduits.features.map((feature, index) => (
+                <div key={index} className="border-t border-gray-200 pt-4">
+                  <dt className="font-medium text-gray-900">{feature.name}</dt>
+                  <dd className="mt-2 text-sm text-gray-500">
+                    {feature.description}
+                  </dd>
+                </div>
+              ))}
           </dl>
-          <div className="mt-5 mb-10 grid space-x-3 grid-cols-3 border-t border-gray-200">
-            <div className="">
-              <Buttons
-                name="Ajouter au panier"
-                background="BG_COLOR_YELLOW"
-                colorText="white"
-              >
-                <FaShoppingCart />
-              </Buttons>
-            </div>
-            <div className="">
-              <Buttons
-                name="Acheter maintenant "
-                background="BG_COLOR_FOOTERGRAY"
-                colorText="white"
-              >
-                <FaShoppingCart />
-              </Buttons>
-            </div>
-            <div className="">sdsd</div>
-          </div>
+          <CardButton />
         </div>
       </div>
       <CardGlobalCategories

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ButtonIconsSearch } from "../../Component/index";
 import { ProduitData } from "../Produits/ProduitData";
 
@@ -7,9 +8,9 @@ export default function CardCategories() {
       <div className="px-1 py-1 sm:px-2 sm:py-2  ">
         <div className="grid grid-cols-1 gap-x-2 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {ProduitData.slice(0, 8).map((product) => (
-            <a
+            <Link
               key={product.id}
-              href={`/DetailProduit/${product.id}`}
+              to={`/DetailProduit/${product.id}`}
               className="group"
             >
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 relative">
@@ -28,7 +29,7 @@ export default function CardCategories() {
                   {product.price}
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

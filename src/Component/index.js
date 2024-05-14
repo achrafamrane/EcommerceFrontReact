@@ -20,6 +20,21 @@ export {default as CardGlobalCategories} from "./CardCategories/CardGlobalCatego
 export {default as ButtonIconsSearch} from "./Button/ButtonIconsSearch";
 export {default as Main} from "./Main/Main";
 export {default as DetailProduit} from "./Produits/DetailProduit";
+export {default as SocialIconButton} from "./Button/SocialIconButton ";
+export {default as CardButton} from "./Button/CardButton";
+export {default as CardLivraison} from "./CardLivraison/CardLivraison";
+export {default as CardQuantity} from "./CardQuantity/CardQuantity.jsx";
+export { FeatureProduit} from "./Produits/FeatureProduit.jsx";
+export { AllServicesData} from "./AllServices/AllServicesData.jsx";
+export { HeroData} from "./Hero/HeroData.jsx";
+export {default as ContactClient} from "./ContactClient/ContactClient.jsx";
+export {default as CardContact} from "./CardContact/CardContact.jsx";
+export {default as FormulaireInfClient} from "./ContactClient/FormulaireInfClient.jsx";
+export {default as CardShopping} from "./CardShopping/CardShopping.jsx";
+
+
+
+
 
 
 

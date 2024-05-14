@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Home } from "./Sections";
-import { DetailProduit, Main } from "./Component";
+import { ContactClient, DetailProduit, Main } from "./Component";
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
                     path="/DetailProduit/:produitId"
                     element={<DetailProduit />}
                   />
+                  <Route path="/ContactClient" element={<ContactClient />} />
                 </Routes>
               </Main>
             }
